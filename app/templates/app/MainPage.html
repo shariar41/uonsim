@@ -1,0 +1,281 @@
+<div id="main">
+
+
+
+
+
+
+
+
+
+    <div id="breadcrumb" class="esg-breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <ul id="breadcrumb-root" class="esg-breadcrumb__list">
+
+            <li class="esg-breadcrumb__list-item esg-dropdown">
+                <button class="esg-breadcrumb__link esg-dropdown__toggle" data-menu-id="nav-my-academics" aria-expanded="false">Academics</button>
+                <script type="text/javascript">var lastOpenedBreadcrumb;
+                $(document).ready(function () {
+
+                    function breadcrumbClick(target) {
+                        $(target).toggleClass("esg-is-open");
+                        $(target).attr("aria-expanded", function (index, attr) { return !attr; });
+                    }
+
+                    $('[data-menu-id="nav-my-academics"]').on("click", function (event) {
+                        breadcrumbClick($(event.target));
+                        if (lastOpenedBreadcrumb === undefined) {
+                            lastOpenedBreadcrumb = $(event.target);
+                        }
+                        else if ($(event.target).is(lastOpenedBreadcrumb)) {
+                            lastOpenedBreadcrumb = undefined;
+                        }
+                        else if (lastOpenedBreadcrumb.hasClass("esg-breadcrumb__link")) {
+                            breadcrumbClick(lastOpenedBreadcrumb);
+                            lastOpenedBreadcrumb = $(event.target);
+                        }
+
+                    });
+                    $("#breadcrumb a.esg-dropdown__link").on("mousedown", function (e) {
+                        e.stopImmediatePropagation();
+                        e.preventDefault();
+                    });
+
+
+
+                    $("a.esg-dropdown__link, .esg-breadcrumb__link").on("focusout", function () {
+
+                        setTimeout(function () {
+                            if ($(':focus').hasClass("esg-dropdown__link")) {
+
+                            }
+                            else {
+                                $('.esg-breadcrumb__link').each(function () {
+                                    if ($(this).hasClass('esg-is-open')) {
+                                        $(this).trigger('click');
+                                    }
+                                });
+                            }
+                        }, 1);
+
+                    });
+                });</script>
+                <ul class="esg-dropdown__menu esg-dropdown__menu--popover" id="breadcrumb-nav-contents-my-academics" role="region">
+                    <li class="esg-dropdown__menu-item">
+                        <a class="esg-dropdown__link" data-menu-item-id="bc-apHome" href="/Student/Planning">Student Planning</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-courseCatalog" class="esg-dropdown__link" data-menu-item-id="bc-courseCatalog" href="/Student/Student/Courses">Course Catalog</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-gradesHome" class="esg-dropdown__link" data-menu-item-id="bc-gradesHome" href="/Student/Student/Grades">Grades</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-graduationHome" class="esg-dropdown__link" data-menu-item-id="bc-graduationHome" href="/Student/Student/Graduation">Commencement Overview</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-enrollmentVerificationHome" class="esg-dropdown__link" data-menu-item-id="bc-enrollmentVerificationHome" href="/Student/Student/EnrollmentVerificationRequests">Enrollment Verifications</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-unofficialTranscripts" class="esg-dropdown__link" data-menu-item-id="bc-unofficialTranscripts" href="/Student/Student/Transcripts">Unofficial Transcript</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-transferSummary" class="esg-dropdown__link" data-menu-item-id="bc-transferSummary" href="/Student/Student/TransferSummary">Transfer Summary</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-testSummary" class="esg-dropdown__link" data-menu-item-id="bc-testSummary" href="/Student/Student/TestScores">Test Summary</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="esg-breadcrumb__list-item esg-dropdown">
+                <button class="esg-breadcrumb__link esg-dropdown__toggle" data-menu-id="nav-academic-planning" aria-expanded="false">Student Planning</button>
+                <script type="text/javascript">var lastOpenedBreadcrumb;
+                $(document).ready(function () {
+
+                    function breadcrumbClick(target) {
+                        $(target).toggleClass("esg-is-open");
+                        $(target).attr("aria-expanded", function (index, attr) { return !attr; });
+                    }
+
+                    $('[data-menu-id="nav-academic-planning"]').on("click", function (event) {
+                        breadcrumbClick($(event.target));
+                        if (lastOpenedBreadcrumb === undefined) {
+                            lastOpenedBreadcrumb = $(event.target);
+                        }
+                        else if ($(event.target).is(lastOpenedBreadcrumb)) {
+                            lastOpenedBreadcrumb = undefined;
+                        }
+                        else if (lastOpenedBreadcrumb.hasClass("esg-breadcrumb__link")) {
+                            breadcrumbClick(lastOpenedBreadcrumb);
+                            lastOpenedBreadcrumb = $(event.target);
+                        }
+
+                    });
+                    $("#breadcrumb a.esg-dropdown__link").on("mousedown", function (e) {
+                        e.stopImmediatePropagation();
+                        e.preventDefault();
+                    });
+
+
+
+                    $("a.esg-dropdown__link, .esg-breadcrumb__link").on("focusout", function () {
+
+                        setTimeout(function () {
+                            if ($(':focus').hasClass("esg-dropdown__link")) {
+
+                            }
+                            else {
+                                $('.esg-breadcrumb__link').each(function () {
+                                    if ($(this).hasClass('esg-is-open')) {
+                                        $(this).trigger('click');
+                                    }
+                                });
+                            }
+                        }, 1);
+
+                    });
+                });</script>
+                <ul class="esg-dropdown__menu esg-dropdown__menu--popover" id="breadcrumb-nav-contents-academic-planning" role="region">
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-apHome" class="esg-dropdown__link" data-menu-item-id="bc-apHome" href="/Student/Planning">Planning Overview</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-schedulePlan" class="esg-dropdown__link" data-menu-item-id="bc-schedulePlan" href="/Student/Planning/DegreePlans">Plan &amp; Schedule</a>
+                    </li>
+                    <li class="esg-dropdown__menu-item">
+                        <a id="bc-myprogress" class="esg-dropdown__link" data-menu-item-id="bc-myprogress" href="/Student/Planning/Programs/MyProgress">My Progress</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="bc-currentPage-apHome" class="esg-breadcrumb__list-item">
+                Planning Overview
+            </li>
+        </ul>
+    </div>
+
+    <div id="esg-cdnPath" style="display:none;">https://cdn.elluciancloud.com/assets/1.5.1/css/ellucian-design-system-ltr.min.css</div>
+    <div id="main-content" role="main" tabindex="-1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="esg-page-header esg-has-subtitle">
+            <div class="esg-page-header-subtitle__wrapper">
+                <h1 class="esg-page-header__title">Steps to Getting Started</h1>
+                <span class="esg-page-header__subtitle">There are many options to help you plan your courses and earn your degree. Here are 2 steps to get you started:</span>
+            </div>
+            <div class="esg-page-header__input">
+
+                <form action="/Student/Student/Courses/Search" id="search-form" method="get">
+                    <div class="esg-form__group">
+                        <div class="esg-form__input-group">
+                            <label for="keyword" class="offScreen">Search for Courses by Keyword</label>
+                            <input class="esg-form__input" id="keyword" name="keyword" placeholder="Search for courses...">
+                            <button id="submit-course-search" class="esg-form__icon esg-icon__container esg-form__icon--submit" role="button">
+                                <svg class="esg-icon esg-icon--small esg-icon--light">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+                                </svg>
+                                <span class="offScreen">Search for Courses by Keyword</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="esg-page-wrapper">
+            <div id="home-header" class="esg-row esg-section--margin-top">
+                <div class="esg-col-md-6">
+                    <div id="home-step1" class="home-step">
+                        <a href="/Student/Planning/Programs/MyProgress" aria-label="Go to My Progress">
+                            <div id="step1" class="step-number">
+                                <span class="step-text">1</span>
+                            </div>
+                            <img src="/Student/Areas/Planning/Content/Images/home-requirements@2x.png" alt="View Your Progress">
+                            <h3>View Your Progress</h3>
+                            <p>Start by going to My Progress to see your academic progress in your degree and search for courses.</p>
+                            <p>
+                                <u>Go to My Progress</u>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="esg-col-md-6">
+                    <div id="home-step2" class="home-step">
+                        <a href="/Student/Planning/DegreePlans" aria-label="Go to Plan &amp; Schedule">
+                            <div id="step2" class="step-number">
+                                <span class="step-text">2</span>
+                            </div>
+                            <img src="/Student/Areas/Planning/Content/Images/home-schedule@2x.png" alt="Plan your Degree &amp; Register for Classes">
+                            <h3>Plan your Degree &amp; Register for Classes</h3>
+                            <p>Next, take a look at your plan to see what you’ve accomplished and register your remaining classes toward your degree.</p>
+                            <p>
+                                <u>Go to Plan &amp; Schedule</u>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <spinner id="spinner" params="isVisible: isLoading(), message: stringPlanningHomeLoadingDataSpinnerMessage">
+                <div data-bind="visible: isVisible, css: wrapperClass" class="esg-spinner-container" style="display: none;">
+                    <div class="esg-spinner-wrapper">
+                        <div class="esg-spinner"></div>
+                    </div>
+                    <!-- ko if: showMessage -->
+                    <div class="esg-spinner-container__message" data-bind="html: message">Loading my data...</div>
+                    <!-- /ko -->
+                </div>
+            </spinner>
+            <div id="home-at-a-glance" style="display: none" data-bind="visible: Programs()[0] != null">
+                <table class="esg-table esg-table--no-mobile esg-section--margin-top">
+                    <caption class="offScreen">Program At A Glance</caption>
+                    <thead class="esg-table-head">
+                        <tr class="esg-table-head__row">
+                            <th class="esg-table-head__th">
+                                Programs
+                            </th>
+                            <th class="esg-table-head__th esg-table-head__th--20">
+                                Cumulative GPA
+                            </th>
+                            <th class="esg-table-head__th">
+                                Progress
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="esg-table-body" data-bind="foreach: Programs"></tbody>
+                </table>
+            </div>
+            <section id="home-calendar" class="esg-section--margin-top" style="" data-bind="visible: currentTermCode() != null">
+                <h2 data-bind="text: currentTerm() !== null ? currentTerm().Description() + ' Schedule' : ''">Spring 2022 Schedule</h2>
+                <div class="schedule-calendar fc fc-media-screen fc-direction-ltr fc-theme-standard" aria-hidden="true" tabindex="-1" data-bind="planningCalendar: currentTermEvents, planningCalendarScheduleHeight: 600" style="height: 600px;">
+                    <div class="fc-header-toolbar fc-toolbar fc-toolbar-ltr"><div class="fc-toolbar-chunk"></div><div class="fc-toolbar-chunk"></div><div class="fc-toolbar-chunk"></div></div><div aria-labelledby="fc-dom-1" class="fc-view-harness fc-view-harness-active"><div class="fc-timegrid fc-timeGridWeek-view fc-view"><table role="grid" class="fc-scrollgrid  fc-scrollgrid-liquid"><thead role="rowgroup"><tr role="presentation" class="fc-scrollgrid-section fc-scrollgrid-section-header "><th role="presentation"><div class="fc-scroller-harness"><div class="fc-scroller" style="overflow: hidden scroll;"><table role="presentation" class="fc-col-header " style="width: 868px;"><colgroup><col style="width: 46px;"></colgroup><thead role="presentation"><tr role="row"><th aria-hidden="true" class="fc-timegrid-axis"><div class="fc-timegrid-axis-frame"></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-sun fc-day-past" data-date="2024-02-11"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 11, 2024">Sun</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-mon fc-day-past" data-date="2024-02-12"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 12, 2024">Mon</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-tue fc-day-past" data-date="2024-02-13"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 13, 2024">Tue</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-wed fc-day-today " data-date="2024-02-14"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 14, 2024">Wed</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-thu fc-day-future" data-date="2024-02-15"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 15, 2024">Thu</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-fri fc-day-future" data-date="2024-02-16"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 16, 2024">Fri</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-sat fc-day-future" data-date="2024-02-17"><div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion " aria-label="February 17, 2024">Sat</a></div></th></tr></thead></table></div></div></th></tr></thead><tbody role="rowgroup"><tr role="presentation" class="fc-scrollgrid-section fc-scrollgrid-section-body  fc-scrollgrid-section-liquid"><td role="presentation"><div class="fc-scroller-harness fc-scroller-harness-liquid"><div class="fc-scroller fc-scroller-liquid-absolute" style="overflow: hidden scroll;"><div class="fc-timegrid-body" style="width: 868px;"><div class="fc-timegrid-slots"><table aria-hidden="true" class="" style="width: 868px;"><colgroup><col style="width: 46px;"></colgroup><tbody><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="00:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">12am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="00:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="00:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="00:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="01:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">1am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="01:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="01:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="01:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="02:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">2am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="02:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="02:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="02:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="03:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">3am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="03:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="03:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="03:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="04:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">4am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="04:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="04:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="04:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="05:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">5am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="05:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="05:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="05:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="06:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">6am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="06:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="06:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="06:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="07:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">7am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="07:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="07:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="07:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="08:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">8am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="08:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="08:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="08:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="09:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">9am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="09:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="09:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="09:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="10:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">10am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="10:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="10:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="10:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="11:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">11am</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="11:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="11:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="11:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="12:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">12pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="12:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="12:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="12:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="13:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">1pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="13:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="13:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="13:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="14:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">2pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="14:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="14:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="14:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="15:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">3pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="15:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="15:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="15:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="16:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">4pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="16:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="16:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="16:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="17:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">5pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="17:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="17:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="17:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="18:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">6pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="18:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="18:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="18:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="19:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">7pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="19:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="19:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="19:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="20:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">8pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="20:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="20:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="20:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="21:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">9pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="21:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="21:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="21:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="22:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">10pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="22:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="22:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="22:30:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-scrollgrid-shrink" data-time="23:00:00"><div class="fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame"><div class="fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion">11pm</div></div></td><td class="fc-timegrid-slot fc-timegrid-slot-lane " data-time="23:00:00"></td></tr><tr><td class="fc-timegrid-slot fc-timegrid-slot-label fc-timegrid-slot-minor" data-time="23:30:00"></td><td class="fc-timegrid-slot fc-timegrid-slot-lane fc-timegrid-slot-minor" data-time="23:30:00"></td></tr></tbody></table></div><div class="fc-timegrid-cols"><table role="presentation" style="width: 868px;"><colgroup><col style="width: 46px;"></colgroup><tbody role="presentation"><tr role="row"><td aria-hidden="true" class="fc-timegrid-col fc-timegrid-axis"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-sun fc-day-past" data-date="2024-02-11"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-mon fc-day-past" data-date="2024-02-12"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-tue fc-day-past" data-date="2024-02-13"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"><div class="fc-timegrid-event-harness fc-timegrid-event-harness-inset" style="inset: 631px 0% -683px; z-index: 1;"><a class="fc-timegrid-event fc-v-event fc-event fc-event-start fc-event-end fc-event-past registered-cal-item" tabindex="0"><div class="fc-event-main" style="color: black;"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">CPEG-447-21</div></div></div></div></a></div><div class="fc-timegrid-event-harness fc-timegrid-event-harness-inset" style="inset: 757px 0% -862px; z-index: 1;"><a class="fc-timegrid-event fc-v-event fc-event fc-event-start fc-event-end fc-event-past registered-cal-item" tabindex="0"><div class="fc-event-main" style="color: black;"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">CPEG-572-11</div></div></div></div></a></div></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-wed fc-day-today " data-date="2024-02-14"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"><div class="fc-timegrid-event-harness fc-timegrid-event-harness-inset" style="inset: 400px 0% -505px; z-index: 1;"><a class="fc-timegrid-event fc-v-event fc-event fc-event-start fc-event-end fc-event-today fc-event-future registered-cal-item" tabindex="0"><div class="fc-event-main" style="color: black;"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">CPSC-501-13</div></div></div></div></a></div></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-thu fc-day-future" data-date="2024-02-15"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"><div class="fc-timegrid-event-harness fc-timegrid-event-harness-inset" style="inset: 631px 0% -683px; z-index: 1;"><a class="fc-timegrid-event fc-v-event fc-event fc-event-start fc-event-end fc-event-future registered-cal-item" tabindex="0"><div class="fc-event-main" style="color: black;"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">CPEG-447-21</div></div></div></div></a></div><div class="fc-timegrid-event-harness fc-timegrid-event-harness-inset" style="inset: 715px 0% -820px; z-index: 1;"><a class="fc-timegrid-event fc-v-event fc-event fc-event-start fc-event-end fc-event-future registered-cal-item" tabindex="0"><div class="fc-event-main" style="color: black;"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">CPEG-447-21</div></div></div></div></a></div></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-fri fc-day-future" data-date="2024-02-16"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td><td role="gridcell" class="fc-timegrid-col fc-day fc-day-sat fc-day-future" data-date="2024-02-17"><div class="fc-timegrid-col-frame"><div class="fc-timegrid-col-bg"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-col-events"></div><div class="fc-timegrid-now-indicator-container"></div></div></td></tr></tbody></table></div></div></div></div></td></tr></tbody></table></div></div>
+                </div>
+                <!-- ko with: ko.utils.arrayFirstDeprecated(planViewModelInstance.DegreePlan().Terms(), function(term) { return term.Code() == planViewModelInstance.currentTermCode(); }) -->
+                <!-- ko if: $data.unscheduledSections().length > 0 ||  $data.unscheduledRegisteredSections().length > 0--><!-- /ko -->
+                <!-- /ko -->
+            </section>
+        </div>
+
+
+    </div>
+    <footer class="esg-footer">
+        <div class="esg-footer__text">© 2000-2024 Ellucian Company L.P. and its affiliates. All rights reserved. <a href="/Student/Home/privacy">Privacy</a></div>
+    </footer>
+    <script type="text/javascript">if (window.matchMedia("only screen and (max-width: 62rem)").matches) {
+                    $(".esg-footer").addClass("esg-is-fixed");
+                    var fadeTimeout = 2000;
+                    setTimeout(function () {
+                        $(".esg-footer").addClass("fade-out");
+                    }, fadeTimeout);
+                    $(window).on("scroll", function () {
+                        $(".esg-footer").addClass("fade-out");
+                    });
+                }</script>
+</div>

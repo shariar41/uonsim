@@ -1,0 +1,1355 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% block headContent %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/grades.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+<!--<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />-->
+
+<!--<link rel="manifest" href="https://cdn.elluciancloud.com/assets/1.5.1/favicon/manifest.json">-->
+<link href="{% static 'app/content/elluciancloud.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<!-- for header part -->
+<header>
+
+    <div class="logosec">
+        <img src="{% static 'app/images/university-of-nairobi-logo.png' %}"
+             class="menulogo"
+             id="menuicn"
+             alt="menu-icon">
+
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+             class="icn menuicn"
+             id="menuicn"
+             alt="menu-icon">
+
+    </div>
+
+    <!--<div class="searchbar">
+        <input type="text"
+               placeholder="Search">
+        <div class="searchbtn">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                 class="icn srchicn"
+                 alt="search-icon">
+        </div>
+    </div>-->
+
+    <div class="message">
+        <!--<div class="circle"></div>
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+             class="icn"
+             alt="">-->
+        <div class="dp">
+            <button class="menu-item">
+                <img src="{% static 'app/images/dpLogo.png' %}"
+                     class="dpicn"
+                     style="background-color: white; width: 52px; height: 50px; object-fit: fill;"
+                     alt="dp">
+            </button>
+        </div>
+    </div>
+
+</header>
+<div class="main-container">
+    <div class="navcontainer">
+        <nav class="nav">
+            <div class="nav-upper-options">
+                <a href="/student" style="text-decoration: none; color: #444; ">
+                    <div class="nav-option option1">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                             class="nav-img"
+                             alt="dashboard">
+                        <h3> Student Home</h3>
+                    </div>
+                </a>
+                <a href="/studentgrade" style="text-decoration: none; color: #444; ">
+                    <div class="option2 nav-option active">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                             class="nav-img"
+                             alt="Grades">
+                        <h3> Grades</h3>
+                    </div>
+                </a>
+
+
+                <!--<div class="nav-option option3">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+                         class="nav-img"
+                         alt="report">
+                    <h3> Report</h3>
+                </div>-->
+                <a href="/transcript" style="text-decoration: none; color: #444; ">
+                    <div class="nav-option option4">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
+                             class="nav-img"
+                             alt="transcript">
+                        <h3> Transcript</h3>
+                    </div>
+                </a>
+
+                <a href="/profile" style="text-decoration: none; color: #444; ">
+                    <div class="nav-option option5">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                             class="nav-img"
+                             alt="blog">
+                        <h3> Profile</h3>
+                    </div>
+                </a>
+                <!--<div class="nav-option option6">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                         class="nav-img"
+                         alt="settings">
+                    <h3> Settings</h3>
+                </div>-->
+
+                <a href="/logout" style="text-decoration: none; color: #444; ">
+                    <div class="nav-option logout">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                             class="nav-img"
+                             alt="logout">
+                        <h3>Logout</h3>
+                    </div>
+                </a>
+
+            </div>
+        </nav>
+    </div>
+    <div class="main">
+        <div id="breadcrumb" class="esg-breadcrumb" role="navigation" aria-label="Breadcrumb">
+            <ul id="breadcrumb-root" class="esg-breadcrumb__list">
+
+                <li class="esg-breadcrumb__list-item esg-dropdown">
+                    <button class="esg-breadcrumb__link esg-dropdown__toggle" data-menu-id="nav-my-academics" aria-expanded="false">Academics</button>
+                    <script type="text/javascript">
+                        var lastOpenedBreadcrumb;
+                        $(document).ready(function () {
+
+                            function breadcrumbClick(target) {
+                                $(target).toggleClass("esg-is-open");
+                                $(target).attr("aria-expanded", function (index, attr) { return !attr; });
+                            }
+
+                            $('[data-menu-id="nav-my-academics"]').on("click", function (event) {
+                                breadcrumbClick($(event.target));
+                                if (lastOpenedBreadcrumb === undefined) {
+                                    lastOpenedBreadcrumb = $(event.target);
+                                }
+                                else if ($(event.target).is(lastOpenedBreadcrumb)) {
+                                    lastOpenedBreadcrumb = undefined;
+                                }
+                                else if (lastOpenedBreadcrumb.hasClass("esg-breadcrumb__link")) {
+                                    breadcrumbClick(lastOpenedBreadcrumb);
+                                    lastOpenedBreadcrumb = $(event.target);
+                                }
+
+                            });
+                            $("#breadcrumb a.esg-dropdown__link").on("mousedown", function (e) {
+                                e.stopImmediatePropagation();
+                                e.preventDefault();
+                            });
+
+
+
+                            $("a.esg-dropdown__link, .esg-breadcrumb__link").on("focusout", function () {
+
+                                setTimeout(function () {
+                                    if ($(':focus').hasClass("esg-dropdown__link")) {
+
+                                    }
+                                    else {
+                                        $('.esg-breadcrumb__link').each(function () {
+                                            if ($(this).hasClass('esg-is-open')) {
+                                                $(this).trigger('click');
+                                            }
+                                        });
+                                    }
+                                }, 1);
+
+                            });
+                        });</script>
+                    <ul class="esg-dropdown__menu esg-dropdown__menu--popover" id="breadcrumb-nav-contents-my-academics" role="region">
+                        <li class="esg-dropdown__menu-item">
+                            <a class="esg-dropdown__link" data-menu-item-id="bc-apHome" href="/Student/Planning">Student Planning</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-courseCatalog" class="esg-dropdown__link" data-menu-item-id="bc-courseCatalog" href="/Student/Student/Courses">Course Catalog</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-gradesHome" class="esg-dropdown__link" data-menu-item-id="bc-gradesHome" href="/Student/Student/Grades">Grades</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-graduationHome" class="esg-dropdown__link" data-menu-item-id="bc-graduationHome" href="/Student/Student/Graduation">Commencement Overview</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-enrollmentVerificationHome" class="esg-dropdown__link" data-menu-item-id="bc-enrollmentVerificationHome" href="/Student/Student/EnrollmentVerificationRequests">Enrollment Verifications</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-unofficialTranscripts" class="esg-dropdown__link" data-menu-item-id="bc-unofficialTranscripts" href="/Student/Student/Transcripts">Unofficial Transcript</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-transferSummary" class="esg-dropdown__link" data-menu-item-id="bc-transferSummary" href="/Student/Student/TransferSummary">Transfer Summary</a>
+                        </li>
+                        <li class="esg-dropdown__menu-item">
+                            <a id="bc-testSummary" class="esg-dropdown__link" data-menu-item-id="bc-testSummary" href="/Student/Student/TestScores">Test Summary</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="bc-currentPage-gradesHome" class="esg-breadcrumb__list-item">
+                    Grades
+                </li>
+            </ul>
+        </div>
+
+        <div id="esg-cdnPath" style="display:none;">https://cdn.elluciancloud.com/assets/1.5.1/css/ellucian-design-system-ltr.min.css</div>
+        <div id="main-content" role="main" tabindex="-1">
+
+
+
+
+
+
+
+
+
+
+
+            <div id="page-description" class="esg-page-header">
+
+
+
+                <h1 id="Grades" class="esg-page-header__title">
+                    Grades
+                </h1>
+
+                <span class="esg-page-header__input"></span>
+            </div>
+
+            <!-- Main Page Container -->
+            <div id="grades-index" class="esg-page-wrapper">
+                <div id="student-grades" style="" data-bind="visible:true">
+                    <!-- Spinner -->
+                    <spinner params="isVisible: !retrieved(), message: stringGradeHomeLoadingDataSpinnerMessage">
+                        <div data-bind="visible: isVisible, css: wrapperClass" class="esg-spinner-container" style="display: none;">
+                            <div class="esg-spinner-wrapper">
+                                <div class="esg-spinner"></div>
+                            </div>
+                            <!-- ko if: showMessage -->
+                            <div class="esg-spinner-container__message" data-bind="html: message">Loading grades...</div>
+                            <!-- /ko -->
+                        </div>
+                    </spinner>
+
+
+                    <section id="term-section" data-bind="visible: retrieved()" style="">
+                        <modal-dialog id="print-grades" params="isVisible:isGradeDetailDialogVisible, title:Ellucian.Student.Grades.Resources.printModalHeading, content:$data, pureModal:true, buttons: [{ title: Ellucian.Student.Grades.Resources.printButtonLabel, callback: Ellucian.Student.Grades.printGrades, isPrimary: true }]">
+                            <!-- Copyright 2013-2021 Ellucian Company L.P. and its affiliates. -->
+                            <!-- ko if: isVisible --><!-- /ko -->
+                            <div class="esg-modal-overlay" style="display: none;" data-bind="click: pureModal()?null: toggle, style: {'display': overlayDisplay }"></div>
+                        </modal-dialog>
+
+
+                        <section id="student-grades-info" style="" data-bind="visible: retrieved()">
+
+
+                            <div style="display:none;" id="EllucianLogo">
+                                <img alt="logo" data-bind="attr:{src: '/Student/' + ReportLogoPath()}" src="/Student//Content/Images/myfooter.png">
+                            </div>
+
+                            <ul data-bind="visible: StudentTermGrades().length > 0, foreach: StudentTermGrades()" id="student-grades-ul" style="">
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 8 (Level Four - 2023)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class Honours <b>(DEGREE COMPLETED)</b></div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG401</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">PUBLIC ADMINISTRATION AND DEVELOPMENT IN AFRICA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG402</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTERNATIONAL ORGANIZATIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">TKG403</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">GOVERNMENT AND POLITICS IN AFRICA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>B</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG404</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">POLITICS OF DEVELOPING COUNTRY</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG405</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">COMPARATIVE POLITICS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 7 (Level Four - 2023)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS412</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">RESEARCH METHODS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA444</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">STRATEGIC STUDIES</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span>B</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">ALS406</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">ISSUES IN HUMAN SECURITY</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>SOC425</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">GLOBALIZATION AND SECURITY</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS410</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTERNATIONAL TRADE</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 6 (Level Three - 2022)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG303</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">GOVERNMENT AND POLITICS IN EAST AFRICA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA418</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">EAST AFRICAN COMMUNITY</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">DIS102</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">FUNDAMENTALS OF INFROMATION SYSTEMS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>B</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DMS111</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">QUANTITATIVE METHODS FOR BUSINESS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG304</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">PAN-AFRICANISM AND THE O.A.U (A.U)</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DOM102</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">PRINCIPLES OF OPERATIONS MANAGEMENT</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+
+
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 5 (Level Three - 2022)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA335</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">DYNAMICS OF GLOBALIZATION</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS350</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTERNATIONAL HUMAN RIGHT LAW</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">TKG302</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">AFRICA IN INTERNATIONAL RELATIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS320</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTERNATIONAL INSTITUTIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA415</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">COMPARATIVE FOREIGN POLICY</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA417</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">FOREIGN RELATIONS OF AFRICA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 4 (Level Two - 2021)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  Second Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS305</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">THE MEDIA AND INTERNATIONAL RELATIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG202</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">KENYA FOREIGN RELATIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">RMA401</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">EPISTEMOLOGY OF RESEARCH</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>B</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS306</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">THE POLITICS OF AID AND DEVELOPMENT</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DBA104</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTRODUCTION TO MACRO-ECONOMICS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">C</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">D</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 3 (Level Two - 2021)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ALS317</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">DIPLOMACY</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA308</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTERNATIONAL ORGANIZATIONS AND WORLD ORDER</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">RMA310</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">REGIONAL INTERNATION IN AFRICA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>B</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>RMA311</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">LEADERSHIP AND CHANGE IN INTERNATIONAL RELATIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG201</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">THE NATIONAL BUREAUCRACY OF KENYA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ENV304</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">THE ENVIRONMENT AND INTERNATIONAL RELATIONS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 2 (Level One - 2018)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DAC102</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">PRESENTATION TECHNIQUES II</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DBA102</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">PRINCIPLES OF MANAGEMENT</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span></span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">TKG102</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">THE KENYAN CONSTITUITION</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ENG201</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">PUBLIC SPEAKING</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">B</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>ENG208</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTERMEDIATE COMPOSITION</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DBA103</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTRODUCTION TO MICRO-ECONOMICS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+                                <li>
+                                    <collapsible-group params="titleText: $data.termHeadingText(), subtitleText: $data.CompletedGpaDisplay(), isOpen: false, noPadding: true">
+                                        <div class="esg-collapsible-group esg-collapsible-group--default" role="tablist" aria-multiselectable="true">
+                                            <div class="esg-collapsible-group__heading" role="tab">
+                                                <div class="esg-collapsible-group__title">
+                                                    <button class="esg-collapsible-group__toggle text-align-left esg-has-subtitle" type="button" aria-expanded="true" data-bind="attr: { id: groupHeaderId, 'aria-controls': groupBodyId }, click: toggleCollapsible, css: collapsibleClass, css: subtitleClass" id="collapsible-2-groupHeading" aria-controls="collapsible-2-collapseBody">
+                                                        <div data-bind="css: subtitleWrapperClass" class="esg-collapsible-group-subtitle__wrapper esg-col-xxs-12 esg-col--float-none">
+                                                            <div class="esg-collapsible-group__title-text">
+                                                                <span data-bind="text: titleText">Semester 1 (Level One - 2018)</span>
+                                                                <!-- ko if: hasTitleContent --><!-- /ko -->
+                                                            </div>
+                                                            <div class="esg-collapsible-group__subtitle" data-bind="text: subtitleText, visible: hasSubtitle, css: subtitleStyle">Term Pass:  First Class</div>
+                                                            <!-- ko if: hasTertiaryContent --><!-- /ko -->
+                                                        </div>
+                                                        <span class="esg-collapsible-group__icon esg-icon__container" aria-hidden="true">
+                                                            <svg class="esg-icon esg-icon--up" data-bind="css: arrowIconClass">
+                                                                <!-- need to switch between icon--up and icon--down (same with the dropdown component)-->
+                                                                <use xlink:href="#icon-arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="esg-collapsible-group__body esg-collapsible-group__body--no-padding esg-is-open" role="tabpanel" data-bind="attr: { id: groupBodyId, 'aria-labelledby': groupHeaderId }, css: collapsibleClass" id="collapsible-2-collapseBody" aria-labelledby="collapsible-2-groupHeading">
+                                                <!--ko template: {nodes: $componentTemplateNodes, data: $parent}-->
+                                                <div class="term-table-large" clear-group="">
+                                                    <table class="esg-table student-grade-table" data-bind="attr: {id: 'student-grade-table-' + $index()}" id="student-grade-table-0">
+                                                        <thead class="esg-table-head">
+                                                            <tr class="esg-table-head__row">
+                                                                <th data-bind="attr: {id: 'CourseSection-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseSectionHeading text-align-left" id="CourseSection-0">Course Section</th>
+                                                                <th data-bind="attr: {id: 'CourseTitle-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--30 esg-table-head__th—no-bottom-border courseTitleHeading text-align-left" id="CourseTitle-0">Title</th>
+                                                                <th data-bind="attr: {id: 'CourseCredits-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--20 esg-table-head__th—no-bottom-border courseCreditsHeading text-align-left" id="CourseCredits-0">Hours</th>
+                                                                <th data-bind="attr: {id: 'CourseFinalGrade-' + $index()}" rowspan="2" class="esg-table-head__th esg-table-head__th--15 esg-table-head__th—no-bottom-border courseFinalGradeHeading text-align-left" id="CourseFinalGrade-0">Final Grade</th>
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <th rowspan="1" data-bind="attr: { id: 'CourseMidterm-' + $index(), 'colspan': $root.NumberOfMidtermGradesToShow() }" class="esg-table-head__th esg-table-head__th--45 esg-table-head__th—no-bottom-border courseMidtermHeading text-align-center" id="CourseMidterm-0" colspan="1">
+                                                                    Midterms
+                                                                </th>
+                                                                <!-- /ko -->
+                                                            </tr>
+                                                            <!-- /ko -->
+                                                        </thead>
+                                                        <tbody class="esg-table-body">
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>TKG101</p>
+
+                                                                    <!--<p>9/5/2023 - 12/19/2023</p>-->
+                                                                </td>
+                                                                <td class="esg-table-body__td">POLITICS AND GOVERNMENT IN KENYA</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span>A</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span>A</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>CCS001</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">COMMUNICATION SKILLS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <!-- ko if: $root.NumberOfMidtermGradesToShow() > 0 -->
+                                                                <td class="esg-table-body__td">
+                                                                    <span></span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p data-bind="text:$data">BUR107</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">QUANTITATIVE TECHNIQUES FOR PLANNERS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+                                                                <td class="esg-table-body__td">
+                                                                    <span></span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>LIT101</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTRODUCTION TO LITERATURE I</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>BUR109</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">PRESENTATION TECHNIQUES I</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">B</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="esg-table-body__row">
+                                                                <td class="esg-table-body__td student-grades-course-name">
+                                                                    <p>DBA101</p>
+                                                                </td>
+                                                                <td class="esg-table-body__td">INTRODUCTION TO BUSINESS</td>
+                                                                <td class="esg-table-body__td">45</td>
+                                                                <td class="esg-table-body__td student-grades-final-grade">
+                                                                    <span data-bind="text:$data">A</span>
+                                                                </td>
+
+                                                                <td class="esg-table-body__td">
+                                                                    <span data-bind="text:Midterm1Grade()">A</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </collapsible-group>
+                                </li>
+
+                            </ul>
+                            <message params="isVisible: StudentTermGrades().length == 0, message: noGradingTermsToShowMessage">
+                                <!-- Copyright 2020 Ellucian Company L.P. and its affiliates. -->
+                                <!-- ko if: isVisible --><!-- /ko -->
+                            </message>
+                        </section>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        <footer class="esg-footer">
+            <div class="esg-footer__text">© 2000-2024 Ellucian Company L.P. and its affiliates. All rights reserved. <a href="/policy">Privacy</a></div>
+        </footer>
+        <script type="text/javascript">
+            if (window.matchMedia("only screen and (max-width: 62rem)").matches) {
+                $(".esg-footer").addClass("esg-is-fixed");
+                var fadeTimeout = 2000;
+                setTimeout(function () {
+                    $(".esg-footer").addClass("fade-out");
+                }, fadeTimeout);
+                $(window).on("scroll", function () {
+                    $(".esg-footer").addClass("fade-out");
+                });
+            }</script>
+    </div>
+</div>
+<script>
+    let menuicn = document.querySelector(".menuicn");
+    let nav = document.querySelector(".navcontainer");
+
+    menuicn.addEventListener("click", () => {
+        nav.classList.toggle("navclose");
+    })
+</script>
+{% endblock %}

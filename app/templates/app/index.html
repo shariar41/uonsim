@@ -1,0 +1,89 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block headContentFromIndex %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/main.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div id="top_info">
+        <div id="logo">
+            <a href="" title="Home">
+                <img src="{% static 'app/images/logo.jpg' %}" class="logoimg">
+            </a>
+        </div>
+        <div class="title">
+            <h1>
+                <a href="/" title="University of Nairobi Home Page">
+                    University of Nairobi
+                </a>
+            </h1>
+            <p id="slogan" title="A world-class university committed to scholarly excellence">
+                A world-class university
+                committed to scholarly excellence
+            </p>
+        </div>
+    </div>
+    <ul id="tablist">
+        <li><a class="current" href="/" accesskey="H"> Portal Home </a></li>
+
+        <li><a href="/" accesskey="S"> Student Fees</a></li>
+        <li><a href="/" accesskey="T"> Timetables</a></li>
+        <li><a href="/" accesskey="C"> Course Registration</a></li>
+        <li><a href="/" accesskey="R"> Results</a></li>
+        <li><a href="/" accesskey="E"> Enquiries </a></li>
+        <li><a href="/" accesskey="E"> Book Room </a></li>
+        <li><a href="/" accesskey="L"> Logout </a></li>
+    </ul>
+    <div id="topics">
+        <div class="thirds"><ul> <li><a href="">Change Password</a></li></ul></div><div class="thirds"><ul> <li><a href="/">My profile</a></li></ul></div><div class="thirds"><ul> <li><a href="/">Student ID</a></li></ul></div><div class="thirds"><ul> <li><a href="/">Inter Faculty</a></li></ul></div><div class="thirds"><ul> <li><a href="/">Clearance Status</a></li></ul></div><div class="thirds"><ul> <li><a href="/">Caution  Refund</a> </li></ul></div><div class="thirds"><ul> <li><a href="/">Academic Tracking</a> </li></ul></div>
+    </div>
+
+    <div id="left">
+        <div class="left_articles">
+            <h3><b><font color="red">E-Ballot system</font></b></h3>
+            <p>Vote for your Faculty and  Campus Student Association. <br><a href="https://eballot.uonbi.ac.ke/">E-Ballot 2022- 2023.</a></p>
+            <font color="black">Application For Temporary (Deferment)/Permanent Withdrawal From And Readmission to Academic Programme</font>
+            <p><a href="https://smis.uonbi.ac.ke/Permanent -Temporary Withdrawal Form.pdf">Permanent -Temporary Withdrawal Form.</a></p><div class="smis_form">
+                <form action="{% url 'home' %}" name="studentLogon" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <table border="1" align="left" cellspacing="0" cellpadding="0" width="100%">
+                            <tbody>
+                                <tr align="left">
+                                    <td>
+                                        <b><font color="red"> </font> </b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        Log on using the Registration Number. <i>The year of registration must be in full eg ../2009 </i><br><br>
+                        <label> Registration Number:</label>
+                        <input type="text" name="regNo" size="20" value="">
+                        <i>Type your Student Registration Number</i> <br><br>
+                        <label> Password:</label>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="password" name="smisPass" size="20">
+                        <i>Use your National ID / Passport No. or KCSE Index No. or Application Reference No. as your initial password</i>
+                        <br><br><label></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!--<input type="submit" name="smisLogon" class="button" value="Login">-->
+                        <button type="submit" class="button">Login</button><br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <a href="forgot_password.php"><h4>Forgot your password?</h4></a>  <label></label>
+                    </fieldset>
+                </form>
+            </div>
+            <div><b>Note: Digits and Letters in your Registration Number.</b><ol><li><b>Digit</b> 0 (Zero) and <b>NOT</b> letter O in C01/..</li><li><b>Letter</b> I and <b>NOT</b> Digit 1 (One) in I20/..</li></ol></div><div class="smis_form">
+                <fieldset>
+                    <legend><a title="Student Management Information System">SMIS Allocated Registration No</a></legend>
+                    <b>New Students</b><br> Enter Application Ref. No as it appear in your <b><i>Letter of Offer </i></b> &nbsp;to get your allocated <b><i> Student Registration No </i></b> <br><label> Application Ref. No:</label><input type="text" name="refNo" size="20" value=""><label></label>  <input type="submit" name="regNoRequestBtn" class="button" value="Get Allocated Registration No">
+                </fieldset>
+            </div>
+            </b>
+            </b>
+        </div><b>
+            <b>
+            </b>
+        </b>
+    </div>
+</div>
+
+{% endblock %}
